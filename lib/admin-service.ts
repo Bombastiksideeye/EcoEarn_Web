@@ -390,7 +390,7 @@ export class AdminService {
       console.log('Found', snapshot.docs.length, 'recycling requests');
       
       // Get all unique user IDs from the recycling requests
-      const userIds = [...new Set(snapshot.docs.map(doc => doc.data().userId).filter(Boolean))];
+      const userIds = Array.from(new Set(snapshot.docs.map(doc => doc.data().userId).filter(Boolean)));
       console.log('Unique user IDs:', userIds);
       
       // Fetch all user profiles at once
