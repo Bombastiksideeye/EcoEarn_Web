@@ -38,7 +38,7 @@ class AuthService {
       }
 
       const adminData = adminDoc.data() as AdminUser;
-      this.adminData = { uid: user.uid, ...adminData };
+      this.adminData = { ...adminData, uid: user.uid };
       
       return { success: true, adminData: this.adminData };
     } catch (error: any) {
