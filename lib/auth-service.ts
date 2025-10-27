@@ -66,7 +66,7 @@ class AuthService {
       const adminDoc = await getDoc(doc(db, 'admins', uid));
       if (adminDoc.exists()) {
         const adminData = adminDoc.data() as AdminUser;
-        this.adminData = { uid, ...adminData };
+        this.adminData = { ...adminData, uid };
         return this.adminData;
       }
       return null;
