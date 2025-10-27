@@ -259,8 +259,8 @@ const MapComponent: React.FC<MapComponentProps> = ({ bins, onBinSelect, selected
 
       // Fit bounds if there are bins with coordinates
       const binsWithCoords = bins.filter(bin => bin.lat && bin.lng);
-      if (binsWithCoords.length > 0) {
-        const group = new L.featureGroup(markers);
+      if (binsWithCoords.length > 0 && markers.length > 0) {
+        const group = L.featureGroup(markers);
         map.fitBounds(group.getBounds().pad(0.1));
       }
     };
